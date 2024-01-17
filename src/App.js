@@ -19,7 +19,7 @@ function App() {
       },
     ];
 
-    setTasks(createTask); //id,title ve taskDesc elemanlarını setTasks ile tasks'ın içine attık
+    setTasks(createdTasks); //id,title ve taskDesc elemanlarını setTasks ile tasks'ın içine attık
   };
 
   return (

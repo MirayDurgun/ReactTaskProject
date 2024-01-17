@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function TaskCreate({ onCreate }) {
   const [title, setTitle] = useState("");
-  const [taskDesc, setTaskDec] = useState("");
+  const [taskDesc, setTaskDesc] = useState("");
 
   const handleChange = (event) => {
     //event, inputun içine girdiğimiz değere tekabül eder
@@ -11,7 +11,7 @@ function TaskCreate({ onCreate }) {
 
   const handleTaskChange = (event) => {
     //event, inputun içine girdiğimiz değere tekabül eder
-    setTaskDec(event.target.value);
+    setTaskDesc(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -19,13 +19,13 @@ function TaskCreate({ onCreate }) {
     onCreate(title, taskDesc);
     //bu props ismi ile app.jse yollayacağız değerleri
     setTitle("");
-    setTaskDec("");
+    setTaskDesc("");
     //değerleri yolladıktan sonra setTitle ve setTaskDec ile içini boşaltıyoruz
   };
 
   return (
     <div className="task-create">
-      <h3>Lütfen TaskEkleyiniz</h3>
+      <h3>Lütfen Task Ekleyiniz</h3>
       <form className="task-form">
         <label className="task-label">Başlık</label>
         <input value={title} onChange={handleChange} className="task-input" />
