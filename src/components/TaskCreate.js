@@ -1,6 +1,6 @@
 import { React } from "react";
 
-function TaskCreate() {
+function TaskCreate({ onCreate }) {
   const [title, setTitle] = useState("");
   const [taskDesc, setTaskDec] = useState("");
 
@@ -12,6 +12,12 @@ function TaskCreate() {
   const handleTaskChange = (event) => {
     //event, inputun içine girdiğimiz değere tekabül eder
     setTaskDec(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); //sayfa yenilenmez
+    onCreate(title, taskDesc);
+    //bu props ismi ile app.jse yollayacağız değerleri
   };
 
   return (
@@ -28,7 +34,9 @@ function TaskCreate() {
           className="task-input"
           rows={5}
         />
-        <button className="task-button">Oluştur</button>
+        <button onClick={handleSubmit} className="task-button">
+          Oluştur
+        </button>
       </form>
     </div>
   );
