@@ -18,6 +18,9 @@ function TaskCreate({ onCreate }) {
     event.preventDefault(); //sayfa yenilenmez
     onCreate(title, taskDesc);
     //bu props ismi ile app.jse yollayacağız değerleri
+    setTitle("");
+    setTaskDec("");
+    //değerleri yolladıktan sonra setTitle ve setTaskDec ile içini boşaltıyoruz
   };
 
   return (
