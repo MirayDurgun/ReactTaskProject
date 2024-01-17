@@ -27,14 +27,62 @@
 
 .task-button {
   margin: 10px 0;
-  border: 1px solid rgb(34, 193, 195);
+  border-style: none;
   border-radius: 10px;
   font-size: 20px;
   color: white;
   height: 40px;
-  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(93, 146, 214, 1) 32%, rgba(123, 122, 223, 1) 56%, rgba(136, 98, 232, 1) 65%);
+  background: radial-gradient(circle, rgba(252, 176, 69, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(131, 58, 180, 1) 100%);
 }
 
 .task-button:hover {
-  background: linear-gradient(180deg, rgba(34,193,195,1) 0%, rgba(93,146,214,1) 32%, rgba(123,122,223,1) 56%, rgba(136,98,232,1) 65%);
+  background: radial-gradient(circle, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
+
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.task-show {
+  text-align: center;
+  border-radius: 10px;
+  padding: 3px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+  margin: 20px;
+}
+
+.btn-Remove {
+  color: #fd1d1d;
+  border: 1px solid #fd1d1d;
+  border-radius: 5px;
+  background: white;
+  height: 37px;
+  width: 15%;
+}
+.btn-Remove:hover {
+  color: white;
+  border: 1px solid #fd1d1d;
+  background: #fd1d1d;
+}
+
+.btn-Update {
+  color: #833ab4;
+  border: 1px solid #833ab4;
+  border-radius: 5px;
+  background: white;
+  height: 37px;
+  width: 27%;
+  margin-left: 7px;
+}
+
+.btn-Update:hover {
+  color: white;
+  border: 1px solid #833ab4;
+  background: #833ab4;
 }
