@@ -1,0 +1,36 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task-create {
+  width: 450px;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-label {
+  margin: 10px 0;
+}
+
+.task-input {
+  margin: 10px 0;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.task-button {
+  margin: 10px 0;
+  border: 1px solid rgb(34, 193, 195);
+  ;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  height: 40px;
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(93,146,214,1) 32%, rgba(123,122,223,1) 56%, rgba(136,98,232,1) 65%);
+}
