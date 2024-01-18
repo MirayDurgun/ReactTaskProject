@@ -48,12 +48,32 @@ function App() {
     // güncellemek için kullanırız. Bu sayede, belirli bir görevin silinmesi sağlanır.
   };
 
+  const editTaskById = (id, updatedTitle, updatedTaskDesc) => {
+    // tasks dizisindeki her bir görev için bir haritalama yapılır
+    const updatedTasks = tasks.map((task) => {
+      // Eğer görevin id'si güncellenmek istenen id ile eşleşiyorsa
+      if (task.id === id) {
+        // Görevi güncelle ve güncellenmiş halini döndür
+        return { id, title: updatedTitle, taskDesc: updatedTaskDesc };
+      }
+      // Eğer id eşleşmiyorsa, görevi olduğu gibi bırak
+      return task;
+    });
+
+    // Güncellenmiş görev listesini kullanarak tasks state'ini güncelle
+    setTasks(updatedTasks);
+  };
+
   return (
     <div className="App">
       <TaskCreate onCreate={createTask} />
       {/* onCreate, taskcreateden geliyor ve bunun içindeki değerleri createtaskte tutuyoruz */}
       <h1>Görevler</h1>
-      <TaskList tasks={tasks} onDelete={deleteTaskById} />
+      <TaskList
+        tasks={tasks}
+        onDelete={deleteTaskById}
+        onUpdate={editTaskById}
+      />
       {/* id,title ve taskDesc 3 elemanı TaskList componentine göndermemiz gerek*/}
     </div>
   );
