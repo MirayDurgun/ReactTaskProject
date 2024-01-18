@@ -22,12 +22,38 @@ function App() {
     setTasks(createdTasks); //id,title ve taskDesc elemanlarını setTasks ile tasks'ın içine attık
   };
 
+  const deleteTaskById = (id) => {
+    // showdan gönderdiğimiz id listten geçip en sonunda buraya gelir,
+    // Görevi silmek için, gönderilen id ile
+    // eşleşmeyen görevleri içeren yeni bir liste oluşturuyoruz.
+
+    const afterDeletingTasks = tasks.filter((task) => {
+      //tasks dizisinde bulunan görevler arasından
+      // belirli bir id değeriyle eşleşmeyen görevleri içeren bir alt küme oluşturuyor.
+
+      return task.id !== id;
+      // task objesinin id özelliğinin, fonksiyona gönderilen(showdan gelen)
+      // id değeriyle eşleşme durumunu kontrol eder.
+      // Yani, id değeri eşleşmeyen görevleri korur, eşleşenleri filtreler
+      // eşit değilse afterDeletingTasks'in içine yollar sonrasında setedilirek ekrana yazdırılır silinmez
+      // eğer gönderilen id ile eşitse return edilmez dolayısıyla listeye alınmaz, set edilmez
+    });
+
+    setTasks(afterDeletingTasks);
+    // Oluşturduğumuz yeni listeyle,
+    // görevlerin güncellenmiş halini setTasks fonksiyonu aracılığıyla saklıyoruz.
+    // afterDeletingTasks, belirtilen id değeriyle eşleşmeyen görevleri içeren
+    // bir dizi olur ve bu dizi, belirli bir görevin silindiği durumu temsil eder.
+    // Bu diziyi setTasks fonksiyonu aracılığıyla ana bileşenin görev listesini
+    // güncellemek için kullanırız. Bu sayede, belirli bir görevin silinmesi sağlanır.
+  };
+
   return (
     <div className="App">
       <TaskCreate onCreate={createTask} />
       {/* onCreate, taskcreateden geliyor ve bunun içindeki değerleri createtaskte tutuyoruz */}
       <h1>Görevler</h1>
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} onDelete={deleteTaskById} />
       {/* id,title ve taskDesc 3 elemanı TaskList componentine göndermemiz gerek*/}
     </div>
   );
